@@ -33,6 +33,7 @@ module.exports = (env, argv) => {
             new CopyPlugin({
                 patterns: [
                     { from: "*.php", to: path.resolve(__dirname, "./dist") },
+                    { from: "screenshot.png", to: path.resolve(__dirname, "./dist") },
                     { from: ".github", to: path.resolve(__dirname, "./dist/.github") },
                     { from: "acf", to: path.resolve(__dirname, "./dist/acf") },
                     { from: "assets", to: path.resolve(__dirname, "./dist/assets") },
