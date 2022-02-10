@@ -7,19 +7,6 @@
 
   add_theme_support( 'custom-logo' );
 
-  // Save ACF fields
-  add_filter('acf/settings/save_json', function ( $path ) {
-    $path = get_stylesheet_directory() . '/acf';
-    return $path;
-  });
-
-  // Load ACF fields
-  add_filter('acf/settings/load_json', function ( $paths ) {
-    unset($paths[0]);
-    $paths[] = get_stylesheet_directory() . '/acf';
-    return $paths;
-  });
-
   // Add gloabl appearance  settings
   add_action('gdymc_module_options_settings', function ( $module ) {
     optionInput( 'background', array(
