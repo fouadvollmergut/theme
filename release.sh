@@ -12,7 +12,7 @@ cd dist
 
 # Create stylesheet for theme informations
 touch style.css
-echo "/* Theme Name: Pattern GmbH\nAuthor: Fouad Vollmer Werbeagentur\nAuthor URI: http://www.fouadvollmer.de\nDescription: Individuelles Theme der Fouad Vollmer Werbeagentur\nVersion: $1*/" > style.css
+echo "/* Theme Name: Fouad Vollmer Custom Theme\nAuthor: Fouad Vollmer Werbeagentur\nAuthor URI: http://www.fouadvollmer.de\nDescription: Individuelles Theme der Fouad Vollmer Werbeagentur\nVersion: $1*/" > style.css
 
 # Create repo for current release
 git init
