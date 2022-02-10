@@ -2,26 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
-
-module.exports = {
+const config = {
     entry: ["./index.js"],
-    output: {
-        path: path.resolve(__dirname, "./dist/scripts/"),
-        filename: '[name].js'
-    },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: '[name].css'
-      }),
-      new CopyPlugin({
-        patterns: [
-          { from: "*.php", to: path.resolve(__dirname, "./dist") },
-          { from: "assets", to: path.resolve(__dirname, "./dist/assets") },
-          { from: "includes", to: path.resolve(__dirname, "./dist/includes") },
-          { from: "modules/**/*.php", to: path.resolve(__dirname, "./dist/modules") },
-          { from: "modules/**/*.svg", to: path.resolve(__dirname, "./dist/modules") }
-        ],
-      }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        })
     ],
     module: {
         rules: [
@@ -34,4 +20,35 @@ module.exports = {
     devServer: {
         static: path.join(__dirname, "/")
     }
+}
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'production') {
+        config.output = {
+            path: path.resolve(__dirname, "./dist/scripts/"),
+            filename: '[name].js'
+        };
+
+        config.plugins.push(
+            new CopyPlugin({
+                patterns: [
+                    { from: "*.php", to: path.resolve(__dirname, "./dist") },
+                    { from: ".github", to: path.resolve(__dirname, "./dist/.github") },
+                    { from: "assets", to: path.resolve(__dirname, "./dist/assets") },
+                    { from: "includes", to: path.resolve(__dirname, "./dist/includes") },
+                    { from: "modules/**/*.php", to: path.resolve(__dirname, "./dist") },
+                    { from: "modules/**/*.svg", to: path.resolve(__dirname, "./dist") }
+                ],
+            })
+        );
+    }
+
+    if (argv.mode === 'development') {
+        config.output = {
+            path: path.resolve(__dirname, "./scripts/"),
+            filename: '[name].js'
+        };
+    }
+
+    return config;
 }
