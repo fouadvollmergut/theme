@@ -34,6 +34,7 @@ module.exports = (env, argv) => {
                 patterns: [
                     { from: "*.php", to: path.resolve(__dirname, "./dist") },
                     { from: ".github", to: path.resolve(__dirname, "./dist/.github") },
+                    { from: "acf", to: path.resolve(__dirname, "./dist/acf") },
                     { from: "assets", to: path.resolve(__dirname, "./dist/assets") },
                     { from: "includes", to: path.resolve(__dirname, "./dist/includes") },
                     { from: "modules/**/*.php", to: path.resolve(__dirname, "./dist") },
