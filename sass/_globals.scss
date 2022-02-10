@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --fvw-spacing: 4em;
+}
+
+body {
+  font-family: var(--fvt-p-font-family);
+  font-weight: var(--fvt-p-font-weight);
+  font-size: var(--fvt-p-font-size);
+  line-height: var(--fvt-p-line-height);
+  color: var(--fvt-color-dark-font);
+  background-color: var(--fvt-color-bright-background);
+  letter-spacing: .03em;
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-p-font-size) * 1.2);
+  }
+}
+
+.none {
+  display: none;
+}
+
+.block-scrolling {
+  overflow: hidden;
+}
+
+.floater {
+  max-width: var(--fvt-max-width);
+  margin: 0 auto;
+  width: 100%;
+}

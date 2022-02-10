@@ -1,0 +1,31 @@
+// Shadows
+$box-shadow-low: 
+  3.4px 3.4px 2.7px rgba(0, 0, 0, 0.016),
+  8.7px 8.7px 6.9px rgba(0, 0, 0, 0.022),
+  17.7px 17.7px 14.2px rgba(0, 0, 0, 0.028),
+  36.5px 36.5px 29.2px rgba(0, 0, 0, 0.034),
+  100px 100px 80px rgba(0, 0, 0, 0.05);
+
+$box-shadow-medium: 
+  3.4px 3.4px 2.7px rgba(0, 0, 0, 0.031),
+  8.7px 8.7px 6.9px rgba(0, 0, 0, 0.044),
+  17.7px 17.7px 14.2px rgba(0, 0, 0, 0.056),
+  36.5px 36.5px 29.2px rgba(0, 0, 0, 0.069),
+  100px 100px 80px rgba(0, 0, 0, 0.1);
+
+$box-shadow-high: 
+  5.2px 5.2px 2.7px rgba(0, 0, 0, 0.031),
+  13px 13px 6.9px rgba(0, 0, 0, 0.044),
+  26.6px 26.6px 14.2px rgba(0, 0, 0, 0.056),
+  54.8px 54.8px 29.2px rgba(0, 0, 0, 0.069),
+  150px 150px 80px rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition-fast: cubic-bezier(0.775, 0.155, 0.440, 0.605);
+$transition-slow:  cubic-bezier(0.885, 0.010, 0.205, 0.990);
+
+// Layers
+$base: 0;
+$modules: 100;
+$components: 500;
+$overlays: 1000;

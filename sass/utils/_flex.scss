@@ -1,0 +1,91 @@
+// Flex Rules
+
+.flex {
+  display: flex;
+  
+  &.row {
+    flex-direction: column;
+
+    &-static {
+      flex-direction: row;
+    }
+
+    @include breakpoint-up('small') {
+      flex-direction: row;
+    }
+  }
+
+  &.row-reverse {
+    flex-direction: column;
+
+    @include breakpoint-up('small') {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.gap {
+    gap: var(--fvt-inner-spacing);
+  }
+
+  &.gap-double {
+    gap: calc(var(--fvt-inner-spacing) * 2);
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.end {
+    justify-content: flex-end;
+  }
+
+  &.sb {
+    justify-content: space-between;
+  }
+
+  &.sa {
+    justify-content: space-around;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+
+  &.align-stretch {
+    align-items: stretch;
+  }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.align-end {
+    align-items: flex-end;
+  }
+
+  &.same-size > * {
+    flex: 1 1 50%;
+  }
+
+  &.size-2-1 > * {
+    &:first-child {
+      flex: 1 1 66%;
+    }
+
+    &:last-child {
+      flex: 1 1 33%;
+    }
+  }
+}

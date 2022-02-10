@@ -1,0 +1,35 @@
+// Header
+header {
+  position: sticky;
+  top: 0;
+  padding: var(--fvt-inner-spacing) var(--fvt-inner-spacing);
+  z-index: $components;
+
+  .custom-logo-link {
+    position: relative;
+    display: block;
+    background: none;
+
+    img {
+      height: 100%;
+      width: 100%;
+      max-height: var(--fvt-header-logo-height);
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .logo {
+    font-family: var(--fvt-display-font-family);
+    font-size: 1.5em;
+    color: inherit;
+    text-decoration: none;
+    background: none !important;
+
+    &:before {
+      display: none;
+    }
+  }
+}

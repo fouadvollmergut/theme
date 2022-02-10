@@ -1,0 +1,105 @@
+// Navigation
+.navigation {
+  // Desktop Menu
+  &__desktop {
+    display: none;
+
+    @import './menu-desktop.scss';
+    
+    @include breakpoint-up('medium') {
+      display: block;
+    }
+  }
+
+  &__footer {
+    @import './menu-footer.scss';
+  }
+
+  // Legal Menu
+  &__legal {
+    @import './menu-legal.scss';
+  }
+
+  // Mobile Menu
+  &__mobile {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--fvt-color-dark-background);
+    clip-path: circle(0% at 50% calc(100% - 50px));
+    z-index: $overlays;
+
+    transition: 
+      clip-path .2s $transition-fast,
+      opacity .3s $transition-slow;
+
+    @import './menu-mobile.scss';
+
+    &--active {
+      opacity: 1;
+      pointer-events: all;
+      clip-path: circle(150vh at 50% calc(100% - 50px));
+    }
+
+    @include breakpoint-up('medium') {
+      display: none;
+    }
+  }
+
+  // Mobile Trigger
+  &__mobile-trigger {
+    position: fixed;
+    display: block;
+    height: 50px;
+    width: 50px;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 100%;
+    background-color: var(--fvt-color-accent);
+    z-index: calc(#{$overlays} + 10);
+    cursor: pointer;
+    box-shadow: $box-shadow-high;
+    filter: brightness(100%);
+    transition: 
+      box-shadow .1s $transition-fast,
+      filter .1s $transition-fast;
+
+    &:active {
+      box-shadow: $box-shadow-medium;
+      filter: brightness(80%);
+    }
+
+    div:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      -webkit-mask-image: url('./assets/icons/hamburger-menu.svg');
+      mask-image: url('./assets/icons/hamburger-menu.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 20px 20px;
+      mask-size: 20px 20px;
+      -webkit-mask-position: center center;
+      mask-position: center center;
+      background-color: var(--fvt-color-dark-background);
+    }
+
+    &--close {
+      div:after {
+        -webkit-mask-image: url('./assets/icons/cross-1.svg');
+        mask-image: url('./assets/icons/cross-1.svg');
+      }
+    }
+
+    @include breakpoint-up('medium') {
+      display: none;
+    }
+  }
+}

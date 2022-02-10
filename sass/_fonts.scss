@@ -1,0 +1,108 @@
+@mixin h1 {
+  font-family: var(--fvt-h1-font-family);
+  font-size: var(--fvt-h1-font-size);
+  font-weight: var(--fvt-h1-font-weight);
+  line-height: var(--fvt-h1-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-h1-font-size) * 1.5);
+  }
+}
+
+@mixin h2 {
+  font-family: var(--fvt-h2-font-family);
+  font-size: var(--fvt-h2-font-size);
+  font-weight: var(--fvt-h2-font-weight);
+  line-height: var(--fvt-h2-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-h2-font-size) * 1.5);
+  }
+}
+
+@mixin h3 {
+  font-family: var(--fvt-h3-font-family);
+  font-size: var(--fvt-h3-font-size);
+  font-weight: var(--fvt-h3-font-weight);
+  line-height: var(--fvt-h3-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-h3-font-size) * 1.5);
+  }
+}
+
+@mixin h4 {
+  font-family: var(--fvt-h4-font-family);
+  font-size: var(--fvt-h4-font-size);
+  font-weight: var(--fvt-h4-font-weight);
+  line-height: var(--fvt-h4-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-h4-font-size) * 1.5);
+  }
+}
+
+@mixin h5 {
+  font-family: var(--fvt-h5-font-family);
+  font-size: var(--fvt-h5-font-size);
+  font-weight: var(--fvt-h5-font-weight);
+  line-height: var(--fvt-h5-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-h5-font-size) * 1.5);
+  }
+}
+
+@mixin h6 {
+  font-family: var(--fvt-h6-font-family);
+  font-size: var(--fvt-h6-font-size);
+  font-weight: var(--fvt-h6-font-weight);
+  line-height: var(--fvt-h6-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-h6-font-size) * 1.5);
+  }
+}
+
+@mixin text {
+  font-family: var(--fvt-p-font-family);
+  font-size: var(--fvt-p-font-size);
+  font-weight: var(--fvt-p-font-weight);
+  line-height: var(--fvt-p-line-height);
+
+  @include breakpoint-up('small') {
+    font-size: calc(var(--fvt-p-font-size) * 1.2);
+  }
+}
+
+h1 .gdymc_text {
+  @include h1;
+}
+
+h2 .gdymc_text {
+  @include h2;
+}
+
+h3 .gdymc_text {
+  @include h3;
+}
+
+h4 .gdymc_text {
+  @include h4;
+}
+
+h5  .gdymc_text{
+  @include h5;
+}
+
+h6 .gdymc_text {
+  @include h6;
+}
+
+p .gdymc_text {
+  @include text;
+}
+
+a .gdymc_text {
+  @include text;
+}

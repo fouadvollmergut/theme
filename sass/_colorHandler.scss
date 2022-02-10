@@ -1,0 +1,163 @@
+header {
+  &.background_bright {
+    background-color: var(--fvt-color-bright-background);
+    color: var(--fvt-color-dark-font);
+
+    .menu {
+      li a {
+        background: none;
+
+        &:before {
+          background-color: var(--fvt-color-bright-background-darker);
+        }
+      }
+    }
+  }
+
+  &.background_dark {
+    background-color: var(--fvt-color-dark-background);
+    color: var(--fvt-color-bright-font);
+
+    .menu {
+      li a {
+        background: none;
+
+        &:before {
+          background-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+    }
+  }
+}
+
+main, footer {
+
+  // Bright Background Color
+  .background_bright .gdymc_moduleinner,
+  .background_bright .footer__inner  {
+    background-color: var(--fvt-color-bright-background);
+    color: var(--fvt-color-dark-font);
+
+    a {
+      background: var(--fvt-color-bright-background-darker-disabled);
+
+      &:hover {
+        background: var(--fvt-color-bright-background-darker-active);
+      }
+    }
+
+    a, input[type="submit"] {
+      &.cta {
+        background-color: var(--fvt-color-dark-background-lighter);
+        color: var(--fvt-color-bright-font);
+
+        &:hover {
+          background-color: var(--fvt-color-dark-background);
+        }
+
+        &:active {
+          color: var(--fvt-color-bright-font-darker);
+        }
+      }
+    }
+
+    form {
+      input:not([type="submit"], [type="checkbox"]), textarea {
+        border-color: transparent;
+        background-color: var(--fvt-color-bright-background-darker);
+        color: var(--fvt-color-dark-font);
+
+        &::placeholder {
+          color: var(--fvt-color-dark-font);
+        }
+
+        &:focus {
+          border-color: var(--fvt-color-dark-background-lighter-disabled);
+        }
+      }
+
+      input[type="checkbox"] {
+        background-color: var(--fvt-color-bright-background-darker);
+
+        &:checked {
+          background-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+
+      &.loading {
+        &:after {
+          background-color: var(--fvt-color-dark-background);
+        }
+      }
+
+      span.form__overlay {
+        background-color: var(--fvt-color-bright-background);
+      }
+    }
+  }
+
+
+  // Dark Background Color
+  .background_dark .gdymc_moduleinner,
+  .background_dark .footer__inner {
+    background-color: var(--fvt-color-dark-background);
+    color: var(--fvt-color-bright-font);
+    
+    a {
+      background: var(--fvt-color-dark-background-lighter-disabled);
+
+      &:hover {
+        background: var(--fvt-color-dark-background-lighter-active);
+      }
+
+      &:active {
+        color: var(--fvt-color-bright-font-darker);
+      }
+    }
+
+    a, input[type="submit"] {
+      &.cta {
+        background-color: var(--fvt-color-dark-background-lighter-disabled);
+        color: var(--fvt-color-bright-font);
+
+        &:hover {
+          background-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+    }
+
+    form {
+      input:not([type="submit"]), textarea {
+        border-color: transparent;
+        background-color: var(--fvt-color-dark-background-lighter-disabled);
+        color: var(--fvt-color-bright-font);
+
+        &::placeholder {
+          color: var(--fvt-color-bright-font);
+        }
+
+        &:focus {
+          border-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+
+      input[type="checkbox"] {
+        background-color: var(--fvt-color-dark-background-lighter-disabled);
+  
+        &:checked {
+          background-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+
+      &.loading {
+        &:after {
+          background-color: var(--fvt-color-bright-background);
+        }
+      }
+
+      span.form__overlay {
+        background-color: var(--fvt-color-dark-background);
+      }
+    }
+  }
+}

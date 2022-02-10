@@ -1,0 +1,24 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0px;
+  list-style: none;
+  margin-bottom: 70px;
+  align-self: center;
+  align-items: center;
+
+  @include breakpoint-up('small') {
+    margin-bottom: 0;
+    align-items: flex-start;
+  }
+
+  @include breakpoint-up('medium') {
+    flex-direction: row;
+  }
+
+  li a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

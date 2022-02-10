@@ -1,0 +1,45 @@
+// Shared Module Styles
+.module {
+  max-width: var(--fvt-max-width);
+  margin: 0 auto;
+
+  .shift {
+    transform: none;
+
+    @include breakpoint-up('small') {
+      transform: translateY(calc(var(--fvt-inner-spacing) * 2));
+
+      + .shift {
+        transform: translateY(calc(var(--fvt-inner-spacing) * -2));
+      }
+    }
+  }
+}
+
+.modulePadding {
+  padding: calc(var(--fvt-outer-spacing)) 10px;
+
+  @include breakpoint-up('small') {
+    padding: calc(var(--fvt-outer-spacing) * 2) var(--fvt-outer-spacing);
+  }
+}
+
+// GDYMC Adjustments
+
+.gdymc_text {
+  word-wrap: break-word;
+}
+
+.gdymc_image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.full_image .gdymc_gallery_item img,
+.full_image .gdymc_image img {
+  aspect-ratio: var(--fvt-full-image-aspect-ratio);
+}
+
+.small_image .gdymc_image img {
+  aspect-ratio: var(--fvt-small-image-aspect-ratio);
+}

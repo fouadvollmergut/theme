@@ -1,0 +1,71 @@
+footer {
+  .map {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+
+    @include breakpoint-up('small') {
+      padding: var(--fvt-outer-spacing);
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      background-color: rgba(0,0,0,.5); // Placeholder while map is loading
+      border-radius: 5px;
+      box-shadow: $box-shadow-medium;
+    }
+  }
+
+  div > p:first-child {
+    margin-top: 0;
+  }
+}
+
+.superfooter {
+  width: 100%;
+  background-color: var(--fvt-color-dark-background-darker);
+  color: var(--fvt-color-dark-background-lighter);
+  padding: 15px var(--fvt-outer-spacing);
+
+  a.fv {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    align-self: center;
+
+    @include breakpoint-up('small') {
+      align-self: flex-end;
+    }
+
+    span {
+      position: relative;
+      color: inherit;
+      background-color: inherit;
+      font-weight: bold;
+      transition: 
+        opacity .15s $transition-fast,
+        transform .15s $transition-fast;
+      z-index: calc(#{$components} + 10);
+
+      &:first-child {
+        position: absolute;
+        display: block;
+        right: 100%;
+        width: 100%;
+        font-weight: 300;
+        opacity: 0;
+        transform: translateX(30px);
+        z-index: calc(#{$components} + 9);
+      }
+    }
+
+    &:hover span {
+      opacity: 1;
+
+      &:first-child {
+        transform: translateX(20px);
+      }
+    }
+  }
+}
