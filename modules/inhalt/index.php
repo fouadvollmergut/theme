@@ -1,13 +1,13 @@
 <?php 
   $module_layout = optionGet('layout', $module->id);
+  $module_switch = optionGet('switch', $module->id);
+  $module_align = optionGet('align', $module->id);
   
   $small_image_size = get_field('fvt_small_image_size', 'option');
-
-  $layout_flex = $module_layout === 'text_bild' ? 'row-reverse' : 'row';
 ?>
 
 <div class="module modulePadding">
-  <div class="flex <?php echo $layout_flex; ?> sb gap-double same-size">
+  <div class="flex <?php echo $module_switch ? 'row-reverse' : 'row'; ?> <?php echo $module_align; ?> sb gap-double same-size">
     <?php if ($module_layout === 'text_text'): ?>
 
       <div class="flex column gap start">
