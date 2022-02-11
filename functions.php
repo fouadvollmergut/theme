@@ -1,13 +1,30 @@
 <?php
 
-  // Load PHPMailer and custom API
+  // THEME Load PHPMailer and custom API
   require_once 'includes/mailer.php';
   require_once 'includes/API/handlers.php';
   require_once 'includes/API/endpoints.php';
 
+  // THEME Add custom logo support
   add_theme_support( 'custom-logo' );
 
-  // Add gloabl appearance  settings
+  // THEME Register Menus
+  register_nav_menu( 'main', 'Hauptmenü' );
+  register_nav_menu( 'foot', 'Fußmenü' );
+  register_nav_menu( 'legal', 'Rechtliches' );
+
+  // THEME Add CSS and JS root files  
+  add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style( 'themestyle', get_template_directory_uri() . '/scripts/main.css' );
+    wp_enqueue_script( 'themescript', get_template_directory_uri() . '/scripts/main.js' );
+  });
+
+  // GDYMC Define modules folder location
+  add_filter( 'gdymc_modules_folder', function ( $content ) {
+    return get_template_directory() . '/modules';
+  });
+
+  // GDYMC Add gloabl appearance  settings
   add_action('gdymc_module_options_settings', function ( $module ) {
     optionInput( 'background', array(
       'type' => 'select',
@@ -26,7 +43,7 @@
     return $classes;
   });
 
-  // Add Theme Settings Page
+  // ACF Add Theme Settings Page
   if( function_exists( 'acf_add_options_page' ) ) {
     acf_add_options_page( array(
       'page_title' => 'Theme',
@@ -38,14 +55,3 @@
       'position' => 59
     ) );
   }
-
-  // Register Menus
-  register_nav_menu( 'main', 'Hauptmenü' );
-  register_nav_menu( 'foot', 'Fußmenü' );
-  register_nav_menu( 'legal', 'Rechtliches' );
-
-  // Add CSS and JS root files  
-  add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style( 'themestyle', get_template_directory_uri() . '/scripts/main.css' );
-    wp_enqueue_script( 'themescript', get_template_directory_uri() . '/scripts/main.js' );
-  });
