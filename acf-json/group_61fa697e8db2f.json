@@ -1351,7 +1351,7 @@
         {
             "key": "field_6204c7c221fcd",
             "label": "Mail Subject",
-            "name": "fvt_secrets_mail_subject",
+            "name": "fvt_secret_mail_subject",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -1505,5 +1505,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644508975
+    "modified": 1646328303
 }

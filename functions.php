@@ -7,6 +7,12 @@
   // THEME Add custom logo support
   add_theme_support( 'custom-logo' );
 
+  // THEME Allow SVG uploads
+  add_filter( 'upload_mimes', function () {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+  });
+
   // THEME Register Menus
   register_nav_menu( 'main', 'Hauptmenü' );
   register_nav_menu( 'foot', 'Fußmenü' );
