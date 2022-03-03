@@ -1,9 +1,8 @@
 <?php
 
-  // THEME Load PHPMailer and custom API
-  require_once 'includes/mailer.php';
-  require_once 'includes/API/handlers.php';
-  require_once 'includes/API/endpoints.php';
+  // THEME Load includes
+  require_once 'includes/Mailer/mailer.php';
+  require_once 'includes/API/api.php';
 
   // THEME Add custom logo support
   add_theme_support( 'custom-logo' );
@@ -49,7 +48,7 @@
       'page_title' => 'Theme',
       'menu_title' => 'Theme',
       'menu_slug' => 'theme-options',
-      'capability' => 'edit_posts',
+      'capability' => 'switch_themes',
       'redirect' => false,
       'icon_url' => 'dashicons-admin-settings',
       'position' => 59
