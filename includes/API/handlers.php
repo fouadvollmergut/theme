@@ -10,7 +10,7 @@
     $mail = $req['mail'];
     $message = $req['message'];
 
-    $sent = get_contact_mail_from_website($to, $mail, $name, $subject, $message);
+    $sent = send_custom_email('contactform', $to, $mail, $name, $subject, $message);
 
     $response = [
         'to' => $to,
