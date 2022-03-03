@@ -63,7 +63,7 @@
             </div>
 
             <div class="flex row sb gap">
-              <div class="flex row-static sb gap" e-click="checkCheckbox">
+              <div class="flex row-static sb gap" e-click="checkChildCheckbox">
                 <input 
                   type="checkbox" 
                   name="privacy" 
@@ -78,7 +78,7 @@
               <input 
                 class="cta"
                 name="submit"
-                e-click="sendContactForm"
+                e-click="sendForm"
                 type="submit"
                 value="<?php _e('Senden', 'Theme'); ?>"
               />

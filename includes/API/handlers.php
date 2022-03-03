@@ -1,26 +1,40 @@
 <?php
 
   function sendContactMail($req) {
-    $to = get_field('fvt_secret_receipient_mail', 'option');
+
+    // From Server
+    $recipientMail = get_field('fvt_secret_receipient_mail', 'option');
     $subject = get_field('fvt_secret_mail_subject', 'option') 
       ? get_field('fvt_secret_mail_subject', 'option') 
       : 'Mail from ' . $req['name'] . ' on ' . get_bloginfo('name');
 
-    $name = $req['name'];
-    $mail = $req['mail'];
-    $message = $req['message'];
-
-    $sent = send_custom_email('contactform', $to, $mail, $name, $subject, $message);
+    // From Client
+    $clientName = $req['name'];
+    $clientMail = $req['mail'];
+    $clientMessage = $req['message'];
 
     $response = [
-        'to' => $to,
-        'subject' => $subject,
-        'message' => $message,
-        'headers' => $headers
+        'name' => $clientName,
+        'mail' => $clientMail,
+        'message' => $clientMessage
     ];
 
-    $res = new WP_REST_Response($response);
-    $res->set_status(200);
+    try {
 
-    return $res;
+      $sent = send_custom_email($recipientMail, $clientMail, $clientName, $subject, $clientMessage);
+
+      $res = new WP_REST_Response($response);
+      $res->set_status(200);
+
+      return $res;
+
+    } catch (Exception $e) {
+
+      error_log("Message could not be sent. Mailer Error: {$e}");
+
+      $res = new WP_REST_Response($response);
+      $res->set_status(500);
+
+      return false;
+    }
   }

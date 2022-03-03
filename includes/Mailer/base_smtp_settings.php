@@ -23,9 +23,8 @@ function base_smtp_settings ( $mail ) {
   $mail->SMTPSecure = $smtp_encryption;
   $mail->Port       = $smtp_port;
 
-  // Recipients
-  $mail->setFrom($smtp_mail, $website_title);
-  $mail->addReplyTo($smtp_mail, $website_title);
+  // // Recipients
+  // $mail->setFrom($smtp_mail, $website_title);
 }
 
-add_action('phpmailer_init', base_smtp_settings);
+add_action('phpmailer_init', 'base_smtp_settings');
