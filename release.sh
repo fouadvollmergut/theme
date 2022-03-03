@@ -1,18 +1,13 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]
-  then
-    echo "Please supply the version number as an argument"
+if [ $# -eq 0 ]; then
+    echo "Please supply the version number as an argument."
 fi
 
 # Build project
 npm run build:prod
 
 cd dist
-
-# Create stylesheet for theme informations
-touch style.css
-echo "/* Theme Name: Fouad Vollmer Custom Theme\nAuthor: Fouad Vollmer Werbeagentur\nAuthor URI: http://www.fouadvollmer.de\nDescription: Individuelles Theme der Fouad Vollmer Werbeagentur\nVersion: $1*/" > style.css
 
 # Create repo for current release
 git init
