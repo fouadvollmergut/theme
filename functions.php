@@ -8,8 +8,10 @@
   add_theme_support( 'custom-logo' );
 
   // THEME Allow SVG uploads
-  add_filter( 'upload_mimes', function () {
-    $mimes['svg'] = 'image/svg+xml';
+  add_filter('upload_mimes', function ($mimes){
+    $new_mimes['svg'] = 'image/svg+xml';
+    $mimes = array_merge($mimes, $new_mimes);
+
     return $mimes;
   });
 
