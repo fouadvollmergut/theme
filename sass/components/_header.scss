@@ -2,8 +2,13 @@
 header {
   position: sticky;
   top: 0;
-  padding: var(--fvt-inner-spacing) var(--fvt-inner-spacing);
+  padding-top: var(--fvt-header-padding-top);
+  padding-bottom: var(--fvt-header-padding-bottom);
   z-index: $components;
+
+  > div {
+    padding: 0 var(--fvt-outer-spacing);
+  }
 
   .custom-logo-link {
     position: relative;

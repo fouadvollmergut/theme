@@ -65,6 +65,48 @@
             "step": ""
         },
         {
+            "key": "field_6221fdf24ce3a",
+            "label": "Header Top Spacing",
+            "name": "fvt_header_padding_top",
+            "type": "number",
+            "instructions": "Header top spacing in Pixel",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 20,
+            "placeholder": 20,
+            "prepend": "",
+            "append": "px",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_6221fe634ce3b",
+            "label": "Header Bottom Spacing",
+            "name": "fvt_header_padding_bottom",
+            "type": "number",
+            "instructions": "Header bottom spacing in Pixel",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 20,
+            "placeholder": 20,
+            "prepend": "",
+            "append": "px",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_6201284c99698",
             "label": "Footer",
             "name": "",
@@ -1505,5 +1547,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646328303
+    "modified": 1646395372
 }
