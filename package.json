@@ -1,7 +1,7 @@
 {
   "name": "@fouadvollmer/theme",
-  "version": "1.2.0",
-  "description": "A theme for Wordpress by Foaud Vollmer",
+  "version": "0.0.0",
+  "description": "A theme for Wordpress by Fouad Vollmer",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch --mode=development --progress",
