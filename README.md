@@ -5,7 +5,6 @@ A theme for Wordpress by Foaud Vollmer
 ## Plugins
 
 - GDY Modular Content
-- ACF Pro
 - Classic Editor
 - Complianz GDPR
 
@@ -15,8 +14,8 @@ A theme for Wordpress by Foaud Vollmer
 2. Place the unpacked theme folder in the themes folder.
 3. Install & activate the required plugins.
 4. Activate the theme.
-6. Go to *ACF* menu and import the field group within the *Sync available* tab.
-5. Go to *Theme* menu and add your smtp settings in the *Secrets* tab.
+5. Add your smtp settings in *Settings* > *Mailer*.
+6. Add your footer information in *Settings* > *Footer*.
 7. Create a new page and use it as your homepage.
 8. Visit your frontend and start placing modules.
 
