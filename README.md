@@ -20,6 +20,37 @@ A theme for Wordpress by Foaud Vollmer
 7. Create a new page and use it as your homepage.
 8. Visit your frontend and start placing modules.
 
+## Features
+
+### Mailer Settings
+
+Options page for custom smtp settings. To be able to use the contact form module you should make use of it.  
+
+Find it in the admin menu below the *Settings* pag (Settings > Mailer).
+
+**API**
+In php you can access the individual values via wordpress' [`get_option()`](https://developer.wordpress.org/reference/functions/get_option/) function.
+
+``` php
+  get_option('fvt_ct_mail_recipient'); // Where should the contact form mails be sent to?
+  get_option('fvt_ct_mail_subject'); // Mail Subject
+  get_option('fvt_ct_smtp_host'); // SMTP Server
+  get_option('fvt_ct_smtp_encryption'); // The encryption your SMTP server is using (in most cases SSL or TLS)
+  get_option('fvt_ct_smtp_port'); // SMTP Port (in most cases 587 for SSL encryption – sometimes 465 with TLS)
+  get_option('fvt_ct_smtp_user'); // SMTP User (in most cases the mail address you'll be sinding from e.g. norely@yourdomain.com)
+  get_option('fvt_ct_smtp_pass'); // Password
+```
+
+### Footer Settings
+
+Options page for contents shown in the footer of your page.
+
+**Maps Link**
+Use an iFrame embed from a maps provider to show it in the footer (tested with [Google Maps](https://www.google.com/maps)).
+
+**Footer Content**
+Text that will be displayed in the left column of your websites footer. Best used for contact details.
+
 ## Conventions
 
 Use these rules to participate in development.

@@ -2,28 +2,24 @@
 
       <?php
         $menu = has_nav_menu( 'foot' );
-        $info = get_field('fvt_footer_information', 'option');
-        $map = get_field('fvt_footer_google_maps', 'option');
+        $info = trim(get_option('fvt_ct_footer_content'));
+        $map = get_option('fvt_ct_footer_map_frame');
       ?>
 
       <!-- Footer -->
       <?php if ($menu || $info || $map): ?>
       <footer>
-        <div class="background_<?php echo get_field('fvt_footer_background', 'option'); ?>">
+        <div class="background_<?php echo background_class('footer'); ?>">
           <div class="footer__inner flex column gap-double">
             <div class="flex column sb gap">
                 <?php if ($map): ?>
-                  <div class="map floater">
-                    <?php echo $map; ?>
-                  </div>
+                  <div class="footer__map floater"><?php echo $map; ?></div>
                 <?php endif; ?>
 
                 <?php if ($info || $menu): ?>
                   <div class="flex row sb gap modulePadding floater">
                   <?php if ($info): ?>
-                    <div>
-                      <?php echo $info; ?>
-                    </div>
+                    <div class="footer__content"><?php echo $info; ?></div>
                   <?php endif; ?>
 
                   <?php if ($menu): ?>
