@@ -1,12 +1,7 @@
 name: Deploy Live
 
 on:
-  push:
-    branches:
-      - live
   workflow_dispatch:
-    branches:
-      - live
 
 jobs:
   build-and-deploy:
