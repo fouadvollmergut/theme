@@ -2,8 +2,6 @@
   $module_layout = optionGet('layout', $module->id);
   $module_switch = optionGet('switch', $module->id);
   $module_align = optionGet('align', $module->id);
-  
-  $small_image_size = get_field('fvt_small_image_size', 'option');
 ?>
 
 <div class="module modulePadding">
@@ -33,18 +31,18 @@
     <?php elseif ($module_layout === 'bild_bild'): ?>
 
       <div class="small_image">
-        <?php contentCreate( 'image_1', 'image', $small_image_size ); ?>
+        <?php contentCreate( 'image_1', 'image', image_size('small') ); ?>
       </div>
       
       <div class="small_image">
-        <?php contentCreate( 'image_2', 'image', $small_image_size ); ?>
+        <?php contentCreate( 'image_2', 'image', image_size('small') ); ?>
       </div>
 
       <?php elseif ($module_layout === 'shift'): ?>
 
         <div class="flex column gap-double start shift">
           <div class="small_image">
-            <?php contentCreate( 'image_1', 'image', $small_image_size ); ?>
+            <?php contentCreate( 'image_1', 'image', image_size('small') ); ?>
           </div>
 
           <div class="flex column gap start">
@@ -60,7 +58,7 @@
 
         <div class="flex column gap-double start shift">
           <div class="small_image">
-            <?php contentCreate( 'image_2', 'image', $small_image_size ); ?>
+            <?php contentCreate( 'image_2', 'image', image_size('small') ); ?>
           </div>
 
           <div class="flex column gap start">
@@ -77,7 +75,7 @@
     <?php else: ?>
 
       <div class="small_image">
-        <?php contentCreate( 'image_1', 'image', $small_image_size ); ?>
+        <?php contentCreate( 'image_1', 'image', image_size('small') ); ?>
       </div>
 
       <div class="flex column gap start">

@@ -2,9 +2,7 @@
 <html <?php language_attributes(); ?>>
 
   <head>
-    <?php include 'interface.php'; ?>
     <?php wp_head(); ?>
-
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
 
@@ -14,7 +12,7 @@
     <div id="site">
 
       <!-- Header -->
-      <header class="background_<?php echo get_field('fvt_header_background', 'option'); ?>">
+      <header class="background_<?php echo background_class('header'); ?>">
         <div class="flex row sb center align-center floater">
           <?php if ( has_custom_logo() ): ?>
             <?php the_custom_logo(); ?>

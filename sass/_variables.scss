@@ -1,0 +1,105 @@
+:root {
+  --shift: 10%;
+
+  /* Accent Color */
+  --accent-h: 326;
+  --accent-s: 100%;
+  --accent-l: 47%;
+  --fvt-color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --fvt-color-accent-lighter: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + var(--shift)));
+  --fvt-color-accent-darker: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - var(--shift)));
+
+  /* Background Bright */
+  --background-bright-h: 0;
+  --background-bright-s: 0%;
+  --background-bright-l: 95%;
+  --fvt-color-bright-background: hsl(var(--background-bright-h), var(--background-bright-s), var(--background-bright-l));
+  --fvt-color-bright-background-lighter: hsl(var(--background-bright-h), var(--background-bright-s), calc(var(--background-bright-l) + var(--shift)));
+  --fvt-color-bright-background-darker: hsl(var(--background-bright-h), var(--background-bright-s), calc(var(--background-bright-l) - var(--shift)));
+  --fvt-color-bright-background-darker-disabled: hsla(var(--background-bright-h), var(--background-bright-s), calc(var(--background-bright-l) - var(--shift)), .5);
+  --fvt-color-bright-background-darker-active: hsla(var(--background-bright-h), var(--background-bright-s), calc(var(--background-bright-l) - var(--shift)), 1);
+
+  /* Background Dark */
+  --background-dark-h: 212;
+  --background-dark-s: 51%;
+  --background-dark-l: 31%;
+  --fvt-color-dark-background: hsl(var(--background-dark-h), var(--background-dark-s), var(--background-dark-l));
+  --fvt-color-dark-background-lighter: hsl(var(--background-dark-h), var(--background-dark-s), calc(var(--background-dark-l) + var(--shift)));
+  --fvt-color-dark-background-darker: hsl(var(--background-dark-h), var(--background-dark-s), calc(var(--background-dark-l) - var(--shift)));
+  --fvt-color-dark-background-lighter-disabled: hsla(var(--background-dark-h), var(--background-dark-s), calc(var(--background-dark-l) + var(--shift)), .5);
+  --fvt-color-dark-background-lighter-active: hsla(var(--background-dark-h), var(--background-dark-s), calc(var(--background-dark-l) + var(--shift)), 1);
+
+  /* Bright Font */
+  --font-bright-h: 0;
+  --font-bright-s: 0%;
+  --font-bright-l: 95%;
+  --fvt-color-bright-font: hsl(var(--font-bright-h), var(--font-bright-s), var(--font-bright-l));
+  --fvt-color-bright-font-lighter: hsl(var(--font-bright-h), var(--font-bright-s), calc(var(--font-bright-l) + var(--shift)));
+  --fvt-color-bright-font-darker: hsl(var(--font-bright-h), var(--font-bright-s), calc(var(--font-bright-l) - var(--shift)));
+
+  /* Dark Font */
+  --font-dark-h: 0;
+  --font-dark-s: 0%;
+  --font-dark-l: 9%;
+  --fvt-color-dark-font: hsl(var(--font-dark-h), var(--font-dark-s), var(--font-dark-l));
+  --fvt-color-dark-font-lighter: hsl(var(--font-dark-h), var(--font-dark-s), calc(var(--font-dark-l) + var(--shift)));
+  --fvt-color-dark-font-darker: hsl(var(--font-dark-h), var(--font-dark-s), calc(var(--font-dark-l) - var(--shift)));
+
+  /* Utility Colors */
+  --fvt-color-danger: hsl(357, 76%, 59%);
+
+  /* Base Font */
+  --fvt-base-font-family: Arial, Helvetica, sans-serif;
+  
+  /* Display Font */
+  --fvt-display-font-family: Arial, Helvetica, sans-serif;
+
+  /* Font Settings */
+  --fvt-h1-font-family: var(--fvt-base-font-family);
+  --fvt-h1-font-size: 40px;
+  --fvt-h1-font-weight: 700;
+  --fvt-h1-line-height: 1.5;
+
+  --fvt-h2-font-family: var(--fvt-base-font-family);
+  --fvt-h2-font-size: 20px;
+  --fvt-h2-font-weight: 400;
+  --fvt-h2-line-height: 1.5;
+
+  --fvt-h3-font-family: var(--fvt-base-font-family);
+  --fvt-h3-font-size: 40px;
+  --fvt-h3-font-weight: 700;
+  --fvt-h3-line-height: 1.5;
+
+  --fvt-h4-font-family: var(--fvt-base-font-family);
+  --fvt-h4-font-size: 40px;
+  --fvt-h4-font-weight: 700;
+  --fvt-h4-line-height: 1.5;
+
+  --fvt-h5-font-family: var(--fvt-base-font-family);
+  --fvt-h5-font-size: 40px;
+  --fvt-h5-font-weight: 700;
+  --fvt-h5-line-height: 1.5;
+
+  --fvt-h6-font-family: var(--fvt-base-font-family);
+  --fvt-h6-font-size: 40px;
+  --fvt-h6-font-weight: 700;
+  --fvt-h6-line-height: 1.5;
+
+  /* Text */
+  --fvt-p-font-family: var(--fvt-base-font-family);
+  --fvt-p-font-size: 16px;
+  --fvt-p-font-weight: 400;
+  --fvt-p-line-height: 1.5em;
+
+  /* Spacing */
+  --fvt-outer-spacing: 60px;
+  --fvt-inner-spacing: 20px;
+  --fvt-max-width: 1400px;
+
+  /* Images */
+  --fvt-full-image-aspect-ratio: 2 / 1;
+  --fvt-small-image-aspect-ratio: 1 / 1;
+
+  /* Components */
+  --fvt-header-logo-height: 50px;
+}

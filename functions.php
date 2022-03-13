@@ -1,6 +1,11 @@
 <?php
 
+  // THEME Add Easy Init Support
+  require_once 'includes/EasyInit/interface.php';
+
   // THEME Load includes
+  require_once 'includes/Footer/footer_options.php';
+  require_once 'includes/Mailer/mailer_options.php';
   require_once 'includes/Mailer/mailer.php';
   require_once 'includes/API/api.php';
 
@@ -50,15 +55,21 @@
     return $classes;
   });
 
-  // ACF Add Theme Settings Page
-  if( function_exists( 'acf_add_options_page' ) ) {
-    acf_add_options_page( array(
-      'page_title' => 'Theme',
-      'menu_title' => 'Theme',
-      'menu_slug' => 'theme-options',
-      'capability' => 'switch_themes',
-      'redirect' => false,
-      'icon_url' => 'dashicons-admin-settings',
-      'position' => 59
-    ) );
+  add_action( 'add_meta_boxes', function () {
+    add_meta_box(
+        'fvw-ct-smtp-recipient-mail',
+        'Receipient Mail',
+        'fvw_ct_smtp_recipient_mail_html',
+        'option',
+        'normal',
+        'high',
+        null
+    );
+  });
+
+  function fvw_ct_smtp_recipient_mail_html() {
+    ?>
+    <label for="fvw-ct-smtp-recipient-mail-field">Description for this field</label>
+    <input name="fvw-ct-smtp-recipient-mail-field" id="fvw-ct-smtp-recipient-mail-field"></input>
+    <?php
   }

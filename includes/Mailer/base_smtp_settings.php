@@ -4,14 +4,13 @@
 function base_smtp_settings ( $mail ) {
   $website_title = get_bloginfo('name');
 
-  $smtp_mail = get_field('fvt_secret_smtp_mail', 'option');
-  $smtp_host = get_field('fvt_secret_smtp_server', 'option');
-  $smtp_port = get_field('fvt_secret_smtp_port', 'option');
+  $smtp_host = esc_attr( get_option('fvt_ct_smtp_host') );
+  $smtp_port = esc_attr( get_option('fvt_ct_smtp_port') );
 
-  $smtp_username = get_field('fvt_secret_smtp_username', 'option');
-  $smtp_password = get_field('fvt_secret_smtp_password', 'option');
+  $smtp_username = esc_attr( get_option('fvt_ct_smtp_user') );
+  $smtp_password = esc_attr( get_option('fvt_ct_smtp_pass') );
 
-  $smtp_encryption = get_field('fvt_secret_smtp_encryption', 'option');
+  $smtp_encryption = esc_attr( get_option('fvt_ct_smtp_encryption') );
 
   // Server settings
   // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -22,9 +21,6 @@ function base_smtp_settings ( $mail ) {
   $mail->Password   = $smtp_password;
   $mail->SMTPSecure = $smtp_encryption;
   $mail->Port       = $smtp_port;
-
-  // // Recipients
-  // $mail->setFrom($smtp_mail, $website_title);
 }
 
 add_action('phpmailer_init', 'base_smtp_settings');

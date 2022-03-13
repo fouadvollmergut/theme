@@ -3,9 +3,9 @@
   function sendContactMail($req) {
 
     // From Server
-    $recipientMail = get_field('fvt_secret_receipient_mail', 'option');
-    $subject = get_field('fvt_secret_mail_subject', 'option') 
-      ? get_field('fvt_secret_mail_subject', 'option') 
+    $recipientMail = get_option('fvt_ct_mail_recipient');
+    $subject = get_option('fvt_ct_mail_subject')
+      ? get_option('fvt_ct_mail_subject') 
       : 'Mail from ' . $req['name'] . ' on ' . get_bloginfo('name');
 
     // From Client
