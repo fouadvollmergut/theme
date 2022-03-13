@@ -56,7 +56,6 @@
   });
 
   add_action( 'add_meta_boxes', function () {
-    echo '@@@@';
     add_meta_box(
         'fvw-ct-smtp-recipient-mail',
         'Receipient Mail',
