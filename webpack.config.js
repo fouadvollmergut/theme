@@ -35,7 +35,6 @@ module.exports = (env, argv) => {
                     { from: "*.php", to: path.resolve(__dirname, "./dist") },
                     { from: "*.css", to: path.resolve(__dirname, "./dist") },
                     { from: "screenshot.png", to: path.resolve(__dirname, "./dist") },
-                    { from: ".github", to: path.resolve(__dirname, "./dist/.github") },
                     { from: "assets", to: path.resolve(__dirname, "./dist/assets") },
                     { from: "includes", to: path.resolve(__dirname, "./dist/includes") },
                     { from: "modules/**/*.php", to: path.resolve(__dirname, "./dist") },
