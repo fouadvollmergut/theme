@@ -19,22 +19,15 @@
         'message' => $clientMessage
     ];
 
-    try {
+    $sent = send_custom_email($recipientMail, $clientMail, $clientName, $subject, $clientMessage);
 
-      $sent = send_custom_email($recipientMail, $clientMail, $clientName, $subject, $clientMessage);
-
+    if ($sent):
       $res = new WP_REST_Response($response);
-      $res->set_status(200);
-
+      error_log('200');
       return $res;
-
-    } catch (Exception $e) {
-
-      error_log("Message could not be sent. Mailer Error: {$e}");
-
+    else:
       $res = new WP_REST_Response($response);
       $res->set_status(500);
-
-      return false;
-    }
+      return $res;
+    endif;
   }

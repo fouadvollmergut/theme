@@ -5,28 +5,24 @@ require_once 'base_smtp_settings.php';
 
 
 // Send Custom Email
-function send_custom_email ($to, $clientMail, $clientName, $subject, $message) {
+function send_custom_email ($to, $fromMail, $fromName, $subject, $message) {
 
   // Adjust Headers
   $headers = array(
     'Content-Type: text/html; charset=UTF-8',
-    'From: ' . $clientName . ' <' . $clientMail . '>',
-    'Reply-To: ' . $clientName . ' <' . $clientMail . '>'
+    'From: ' . $fromName . ' <' . $fromMail . '>',
+    'Reply-To: ' . $fromName . ' <' . $fromMail . '>'
   );
 
-  try {
+  $sent = wp_mail($to, $subject, $message, $headers);
 
-    wp_mail($to, $subject, $message, $headers);
-
+  if ($sent):
     error_log('Message has been sent');
     return true;
-
-  } catch (Exception $e) {
-
-    error_log("Message could not be sent. Mailer Error: {$e}");
+  else:
+    error_log("Message could not be sent.");
     return false;
-
-  }
+  endif;
 }
 
   

@@ -2,8 +2,6 @@
 
 // Configure default smtp settings
 function base_smtp_settings ( $mail ) {
-  $website_title = get_bloginfo('name');
-
   $smtp_host = esc_attr( get_option('fvt_ct_smtp_host') );
   $smtp_port = esc_attr( get_option('fvt_ct_smtp_port') );
 
@@ -13,7 +11,6 @@ function base_smtp_settings ( $mail ) {
   $smtp_encryption = esc_attr( get_option('fvt_ct_smtp_encryption') );
 
   // Server settings
-  // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
   $mail->isSMTP();
   $mail->Host       = $smtp_host;
   $mail->SMTPAuth   = true;
@@ -21,6 +18,10 @@ function base_smtp_settings ( $mail ) {
   $mail->Password   = $smtp_password;
   $mail->SMTPSecure = $smtp_encryption;
   $mail->Port       = $smtp_port;
+  $mail->From       = $smtp_username;
+  // $mail->SMTPDebug = 2;
+
+  error_log("SMTP Settings: host: $smtp_host, port: $smtp_port, encryption: $smtp_encryption, username: $smtp_username, password: $smtp_password");
 }
 
 add_action('phpmailer_init', 'base_smtp_settings');
