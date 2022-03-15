@@ -37,7 +37,7 @@ git tag -a v$1 -m "Release v$1"
 git push origin --tags
 
 git checkout -b latest
-git push origin latest
+git push origin latest -f
 
 # Exit and delete build repo
 cd -
