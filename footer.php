@@ -17,7 +17,7 @@
                 <?php endif; ?>
 
                 <?php if ($info || $menu): ?>
-                  <div class="flex row sb gap modulePadding floater">
+                  <div class="grid col-2 gap modulePadding floater">
                   <?php if ($info): ?>
                     <div class="footer__content"><?php echo $info; ?></div>
                   <?php endif; ?>
@@ -29,6 +29,13 @@
                   <?php endif; ?>
                   </div>
                 <?php endif; ?>
+
+                <div class="grid col-3 gap modulePadding floater">
+                  <div class="grid-item"></div>
+                  <div class="grid-item"></div>
+                  <div class="grid-item"></div>
+                  <div class="grid-item"></div>
+                </div>
             </div>
           </div>
         </div>

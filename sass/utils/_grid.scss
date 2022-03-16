@@ -1,0 +1,29 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min($grid-width, 100%), 1fr));
+
+  &.col-2 {
+    @media (min-width: calc(#{$grid-width} * 2)) {
+      grid-template-columns: repeat(2, minmax(min($grid-width, 100%), 1fr));
+    }
+  }
+
+  &.col-3 {
+    @media (min-width: calc(#{$grid-width} * 3)) {
+      grid-template-columns: repeat(3, minmax(min($grid-width, 100%), 1fr));
+    }
+  }
+
+  &.gap {
+    gap: var(--fvt-inner-spacing);
+  }
+
+  &.gap-double {
+    gap: calc(var(--fvt-inner-spacing) * 2);
+  }
+}
+
+.grid-item {
+  height: 150px;
+  background-color: #fff;
+}
