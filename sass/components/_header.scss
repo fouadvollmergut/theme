@@ -12,8 +12,8 @@ header {
 
     img {
       height: 100%;
-      width: 100%;
-      max-height: var(--fvt-header-logo-height);
+      width: auto;
+      height: var(--fvt-header-logo-height);
       vertical-align: middle;
     }
 
