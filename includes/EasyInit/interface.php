@@ -1,5 +1,15 @@
 <?php 
 
+  function icon_type() {
+    if (function_exists('get_field')) {
+      $ei_icon_type = get_field('fvt_icon_type', 'option');
+    }
+
+    $ei_icon_type = apply_filters('fvt_icon_type', $ei_icon_type);
+
+    return $ei_icon_type;
+  }
+
   function background_class($background) {
     $ei_header_background = 'dark';
     $ei_footer_background = 'dark';

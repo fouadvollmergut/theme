@@ -31,6 +31,14 @@ a, input[type="submit"] {
       background-color .3s $transition-fast,
       box-shadow .2s $transition-fast;
 
+    &.icon-left {
+      padding-left: calc(var(--fvt-inner-spacing) / 1.15);
+    }
+
+    &.icon-right {
+      padding-right: calc(var(--fvt-inner-spacing) / 1.15);
+    }
+
     &:hover {
       box-shadow: $box-shadow-medium;
     }

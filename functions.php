@@ -33,9 +33,48 @@
     wp_enqueue_script( 'themescript', get_template_directory_uri() . '/scripts/main.js' );
   });
 
+  // THEME Add Font Awesome
+  add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_script( 'icons', 'https://kit.fontawesome.com/3b35bdd7e6.js' );
+  });
+
+  // THEME Set Font Awesome Icon Type
+  add_filter('fvt_icon_type', function($type) {
+    return $type ? $type : 'solid';
+  });
+
+  // THEME Add Font Awesome Shortcode
+  add_shortcode('i', function($atts) {
+    extract( shortcode_atts( array(
+      'type' => icon_type(),
+      'icon' => '',
+      'size' => '',
+    ), $atts ));
+
+    if ($size) {
+      $size = 'height: ' . $size . '; vertical-align: middle;';
+    } else {
+      $size = '';
+    }
+
+    return '<i style="' . $size . '" class="icon fa-' . $type . ' fa-' . $icon . '"></i>';
+  });
+
   // GDYMC Define modules folder location
   add_filter( 'gdymc_modules_folder', function ( $content ) {
     return get_template_directory() . '/modules';
+  });
+
+  // GDYMC Add Shortcode Support
+
+  add_filter( 'gdymc_contentfilter', function ( $content ) {
+
+    if(!gdymc_logged()):
+      return do_shortcode( $content );
+    else:
+      return $content;
+    endif;
+
   });
 
   // GDYMC Add gloabl appearance  settings
@@ -56,22 +95,3 @@
     $classes[] = 'background_' . $appearance;
     return $classes;
   });
-
-  add_action( 'add_meta_boxes', function () {
-    add_meta_box(
-        'fvw-ct-smtp-recipient-mail',
-        'Receipient Mail',
-        'fvw_ct_smtp_recipient_mail_html',
-        'option',
-        'normal',
-        'high',
-        null
-    );
-  });
-
-  function fvw_ct_smtp_recipient_mail_html() {
-    ?>
-    <label for="fvw-ct-smtp-recipient-mail-field">Description for this field</label>
-    <input name="fvw-ct-smtp-recipient-mail-field" id="fvw-ct-smtp-recipient-mail-field"></input>
-    <?php
-  }
