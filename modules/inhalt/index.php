@@ -1,7 +1,7 @@
 <?php 
-  $module_layout = optionGet('layout', $module->id);
-  $module_switch = optionGet('switch', $module->id);
-  $module_align = optionGet('align', $module->id);
+  $module_layout = optionGet('layout');
+  $module_switch = optionGet('switch');
+  $module_align = optionGet('align');
 ?>
 
 <div class="module modulePadding">
