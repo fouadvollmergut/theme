@@ -1,6 +1,6 @@
 {
   "name": "@fouadvollmer/theme",
-  "version": "x.x.x",
+  "version": "2.1.6",
   "description": "A theme for Wordpress by Fouad Vollmer",
   "main": "index.js",
   "scripts": {
