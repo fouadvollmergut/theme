@@ -31,7 +31,6 @@ header {
 }
 
 main, footer {
-
   // Bright Background Color
   .background_bright .gdymc_moduleinner,
   .background_bright .footer__inner  {
@@ -81,6 +80,22 @@ main, footer {
 
         &:checked {
           background-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+
+      input[type="file"] {
+        &:hover {
+          border-color: var(--fvt-color-dark-background-lighter);
+
+          &:after {
+            background-color: var(--fvt-color-dark-background-lighter);
+          }
+        }
+
+        ~ .filePreview {
+          &.populated {
+            border-color: var(--fvt-color-dark-background-lighter);
+          }
         }
       }
 
@@ -146,6 +161,22 @@ main, footer {
   
         &:checked {
           background-color: var(--fvt-color-dark-background-lighter);
+        }
+      }
+
+      input[type="file"] {
+        &:hover {
+          border-color: var(--fvt-color-dark-background-lighter);
+
+          &:after {
+            background-color: var(--fvt-color-dark-background-lighter);
+          }
+        }
+
+        ~ .filePreview {
+          &.populated {
+            border-color: var(--fvt-color-dark-background-lighter);
+          }
         }
       }
 
