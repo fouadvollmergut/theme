@@ -5,14 +5,15 @@ const mailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"
 
 const check = (input)  => {
   return {
-    email: input.value.match(mailRegEx),
-    tel: input.value !== '',
-    text: input.value !== '',
-    date: input.value !== '',
-    select: input.value !== '',
-    textarea: input.value !== '',
-    hidden: input.value !== '',
-    checkbox: input.checked
+    'text': input.value !== '',
+    'email': input.value.match(mailRegEx),
+    'tel': input.value !== '',
+    'date': input.value !== '',
+    'select-one': input.value !== '',
+    'textarea': input.value !== '',
+    'hidden': input.value !== '',
+    'file': input.value !== '',
+    'checkbox': input.checked,
   } [input.type];
 }
 
@@ -26,12 +27,54 @@ const markInvalidInputs = (input) => {
   }
 };
 
+const createEmbeddedFile = (file) => {
+
+  const embedElement = document.createElement('embed');
+  embedElement.src = URL.createObjectURL(file);
+  embedElement.src += '#toolbar=0&navpanes=0&scrollbar=0';
+
+  const fileName = document.createElement('caption');
+  fileName.innerText = file.name;
+
+  const filePreview = `
+    <div class="filePreviewItem">
+      ${embedElement.outerHTML}
+      <span>${fileName.outerHTML}</span>
+    </div>
+  `;
+
+  return filePreview;
+}
+
+const clearFilePreview = (input) => {
+  const filePreviewContainer = input.parentElement.querySelector('.filePreview');
+  filePreviewContainer.innerHTML = '';
+  filePreviewContainer.classList.remove('populated');
+}
+
 // Methods
 const handler = {
-  checkFormInput: function (event) {
+
+
+  /**
+   * Validate event target and mark it as invalid if it is not valid.
+   *
+   * @param {Object} event The event triggered the function.
+  **/
+
+  validateFormInput: function (event) {
     markInvalidInputs(event.target);
   },
-  checkAllFormInputs: function (event) {
+
+
+  /**
+   * Valiadate all input elements inside the event target form.
+   *
+   * @param {Object} event The event triggered the function.
+   * @return {Object} If validation succeeds: A data object containing all the inserted form data.
+  **/
+
+  validateAllFormInputs: function (event) {
     const errors = [];
     const data = new FormData();
 
@@ -40,7 +83,13 @@ const handler = {
         errors.push(markInvalidInputs(input));
       }
 
-      data.append(input.name, input.value);
+      if (input.type === 'file') {
+        Array.from(input.files).forEach((file, i) => {
+          data.append(input.name + ' ' + i, file);
+        });
+      } else {
+        data.append(input.name, input.value);
+      }
     });
 
     if (errors.includes(false)) {
@@ -49,22 +98,59 @@ const handler = {
       return data;
     }
   },
+
+
+  /**
+   * Check the checkbox that is a child of the event target.
+   *
+   * @param {Object} event The event triggered the function.
+  **/
+
   checkChildCheckbox: function (event) {
     if (event.target.type === 'checkbox') {
       return;
     }
     
-    const targetCheckbox = event.target.parentNode.querySelector('input') 
-      ? event.target.parentNode.querySelector('input')
-      : event.target.querySelector('input');
+    const targetCheckbox = event.target.parentNode.querySelector('input') || event.target.querySelector('input');
 
-      targetCheckbox.checked = !targetCheckbox.checked;
+    targetCheckbox.checked = !targetCheckbox.checked;
+    targetCheckbox.value = targetCheckbox.checked;
   },
+
+
+  /**
+   * Update file preview.
+   *
+   * @param {Object} event The event triggered the function.
+  **/
+
+  handleFilePreview: function (event) {
+    clearFilePreview(event.target);
+    const filePreviewContainer = event.target.parentElement.querySelector('.filePreview');
+
+    Array.from(event.target.files).forEach(file => {
+      filePreviewContainer.insertAdjacentHTML("beforeend", createEmbeddedFile(file));
+    });
+
+    if (filePreviewContainer.childElementCount) {
+      filePreviewContainer.classList.add('populated')
+    } else {
+      filePreviewContainer.classList.remove('populated');
+    }
+  },
+
+
+  /**
+   * Sends the form data to the server. Updates form state according to the sending process.
+   *
+   * @param {Object} event The event triggered the function.
+  **/
+
   sendForm: async function (event) {
     event.preventDefault();
 
     // Get valid form data
-    const formData = handler.checkAllFormInputs(event);
+    const formData = handler.validateAllFormInputs(event);
 
     // Send if form is valid
     if (formData) {
@@ -88,13 +174,38 @@ const handler = {
       });
     }
   },
+
+
+  /**
+   * Reset form input values.
+   *
+   * @param {Object} event The event triggered the function.
+  **/
+
   clearForm: function (event) {
     Array.from(event.target.form).forEach(input => {
       if (input.type !== 'submit') {
         input.value = '';
       }
+
+      if (input.type === 'checkbox') {
+        input.checked = false;
+      }
+
+      if (input.type === 'file') {
+        clearFilePreview(input);
+      }
     });
   },
+
+
+  /**
+   * Handle form state changes by chaning classes of the concerned form.
+   *
+   * @param {Object} event The event triggered the function.
+   * @param {string} state The state to change to.
+  **/
+
   updateFormState: function (event, state) {
     const stateClasses = {
       loading: ['disabled', 'loading'],
@@ -106,6 +217,14 @@ const handler = {
 
     event.target.form.classList.add(...stateClasses);
   },
+
+
+  /**
+   * Clear form state by removing all state classes from the concerned form.
+   *
+   * @param {Object} event The event triggered the function.
+  **/
+
   clearFormState: function (event) {
     event.target.form.classList.remove('disabled', 'loading', 'success', 'failure');
   }

@@ -7,7 +7,7 @@ form {
       opacity .3s $transition-fast;
   }
 
-  input, textarea {
+  input, textarea, select {
     @include text;
     background: none;
     border: none;
@@ -16,8 +16,19 @@ form {
     letter-spacing: .03em;
     transition: border-color .15s $transition-fast;
 
+    &[type="date"] {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+    }
+
     &[type="checkbox"] {
       appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       height: 18px;
       aspect-ratio: 1;
       border-radius: 5px;
@@ -54,6 +65,97 @@ form {
       }
     }
 
+    &[type="select"] {
+      position: relative;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z' fill='currentColor' fill-rule='evenodd' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right .5em top 50%;
+      background-size: 1.2em;
+      border-radius: 5px;
+      border: 3px solid;
+      border-color: #ccc;
+      transition: border-color .15s $transition-fast;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &[type="file"] {
+      &::file-selector-button,
+      &::-webkit-file-upload-button {
+        visibility: hidden;
+        width: 0px;
+        display: none;
+      }
+      
+      position: relative;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #ccc !important;
+
+        &:after {
+          background-color: #ccc;
+        }
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        color: #000;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 2C3.22386 2 3 2.22386 3 2.5V12.5C3 12.7761 3.22386 13 3.5 13H11.5C11.7761 13 12 12.7761 12 12.5V4.70711L9.29289 2H3.5ZM2 2.5C2 1.67157 2.67157 1 3.5 1H9.5C9.63261 1 9.75979 1.05268 9.85355 1.14645L12.7803 4.07322C12.921 4.21388 13 4.40464 13 4.60355V12.5C13 13.3284 12.3284 14 11.5 14H3.5C2.67157 14 2 13.3284 2 12.5V2.5ZM4.75 7.5C4.75 7.22386 4.97386 7 5.25 7H7V5.25C7 4.97386 7.22386 4.75 7.5 4.75C7.77614 4.75 8 4.97386 8 5.25V7H9.75C10.0261 7 10.25 7.22386 10.25 7.5C10.25 7.77614 10.0261 8 9.75 8H8V9.75C8 10.0261 7.77614 10.25 7.5 10.25C7.22386 10.25 7 10.0261 7 9.75V8H5.25C4.97386 8 4.75 7.77614 4.75 7.5Z' fill='currentColor' fill-rule='evenodd' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+        background-position: right 11px top 50%;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 25px;
+        padding: 10px;
+        transition: background-color .15s $transition-fast;
+      }
+
+      ~ .filePreview {
+
+        &.populated {
+          position: relative;
+          border: 3px dashed;
+          border-top: 0;
+          border-color: #ccc;
+          border-radius: 0px 0px 5px 5px;
+          padding: var(--fvt-inner-spacing);
+        }
+        
+        .filePreviewItem {
+          position: relative;
+
+          embed {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 4 / 5;
+          }
+
+          span {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: calc(var(--fvt-inner-spacing) / 2);
+            font-size: .8em;
+            color: white;
+            background-color: rgba(0,0,0,0.6);
+          }
+        }
+      }
+    }
+
     &.invalid {
       border-color: var(--fvt-color-danger) !important;
 
@@ -75,7 +177,7 @@ form {
     border: none;
   }
 
-  input {
+  input, select {
     line-height: 3em;
     padding: 0 10px;
   }

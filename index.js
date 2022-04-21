@@ -13,6 +13,7 @@ ready(function () {
 
   events.add('click');
   events.add('focusout');
+  events.add('change');
 
   initSlider();
 });
