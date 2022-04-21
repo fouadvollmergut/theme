@@ -62,7 +62,7 @@ main, footer {
     }
 
     form {
-      input:not([type="submit"], [type="checkbox"]), textarea {
+      input:not([type="submit"], [type="checkbox"]), textarea, select {
         border-color: transparent;
         background-color: var(--fvt-color-bright-background-darker);
         color: var(--fvt-color-dark-font);
@@ -127,7 +127,7 @@ main, footer {
     }
 
     form {
-      input:not([type="submit"]), textarea {
+      input:not([type="submit"]), textarea, select {
         border-color: transparent;
         background-color: var(--fvt-color-dark-background-lighter-disabled);
         color: var(--fvt-color-bright-font);

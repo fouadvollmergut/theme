@@ -9,6 +9,12 @@ export const helpers = {
 }
 
 export const handler = {
+
+
+  /**
+   * Toggle mobile navigation and update the linked state.
+  **/
+
   mobileNavigation: function() {
     store.state.mobileNavigation = !store.state.mobileNavigation;
     helpers.blockScrolling();

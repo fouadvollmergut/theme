@@ -23,7 +23,7 @@
                 <input 
                   type="text" 
                   name="name" 
-                  e-focusout="checkFormInput"
+                  e-focusout="validateFormInput"
                   placeholder="<?php _e('Name', 'Theme'); ?>"
                   required
                 />
@@ -39,7 +39,7 @@
                 <input 
                   type="email" 
                   name="mail" 
-                  e-focusout="checkFormInput"
+                  e-focusout="validateFormInput"
                   placeholder="<?php _e('Mail', 'Theme'); ?>"
                   required
                 />
@@ -57,7 +57,7 @@
                 name="message"
                 rows="6"
                 placeholder="<?php _e('Nachricht', 'Theme'); ?>"
-                e-focusout="checkFormInput"
+                e-focusout="validateFormInput"
                 required
               ></textarea>
             </div>
