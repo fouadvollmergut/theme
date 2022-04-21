@@ -13,8 +13,6 @@
       ? get_option('fvt_ct_mail_subject') 
       : 'Mail from ' . $req['name'] . ' on ' . get_bloginfo('name');
 
-    error_log(print_r($_POST, true));
-
     // Mail Content
     $mailContentRows = '';
 
