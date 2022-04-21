@@ -20,8 +20,6 @@ function base_smtp_settings ( $mail ) {
   $mail->Port       = $smtp_port;
   $mail->From       = $smtp_username;
   // $mail->SMTPDebug = 2;
-
-  error_log("SMTP Settings: host: $smtp_host, port: $smtp_port, encryption: $smtp_encryption, username: $smtp_username, password: $smtp_password");
 }
 
 add_action('phpmailer_init', 'base_smtp_settings');
