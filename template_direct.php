@@ -3,7 +3,7 @@
 	<?php if( have_posts() ): while( have_posts() ): the_post(); $postID = get_the_ID(); ?>
 
 		<div class="gdymc_module">
-			<div class="modulePadding">
+			<div class="module modulePadding">
 				<?php the_content(); ?>
 			</div>
 		</div>
