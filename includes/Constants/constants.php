@@ -4,7 +4,7 @@
 
     function GET( $path ) {
       if( $this->constants === null ):
-        $locate = locate_template( 'includes/constants/constants_object.php' );
+        $locate = locate_template( 'includes/Constants/constants_object.php' );
 
         if( $locate ):
           require $locate;
