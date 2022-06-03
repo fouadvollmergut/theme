@@ -9,25 +9,25 @@
       $ei_footer_background = get_field('fvt_footer_background', 'option');
     }
 
-    if ($background === 'header') {
+    if (CST()->GET('MARKUP/HEADER') === $background) {
       return $ei_header_background;
-    } elseif ($background === 'footer') {
+    } elseif (CST()->GET('MARKUP/FOOTER') === $background) {
       return $ei_footer_background;
     }
   }
 
   function image_size($image) {
-    $ei_full_image_size = '2560x1280';
-    $ei_small_image_size = '1280x1280';
+    $ei_full_image_size = CST()->GET('IMAGE/SIZE/FULL/DIMENSIONS');
+    $ei_small_image_size = CST()->GET('IMAGE/SIZE/SMALL/DIMENSIONS');
 
     if (function_exists('get_field')) {
       $ei_full_image_size = get_field('fvt_full_image_size', 'option');
       $ei_small_image_size = get_field('fvt_small_image_size', 'option');
     }
 
-    if ($image === 'full') {
+    if (CST()->GET('IMAGE/SIZE/FULL/TYPE') === $image) {
       return $ei_full_image_size;
-    } elseif ($image === 'small') {
+    } elseif (CST()->GET('IMAGE/SIZE/SMALL/TYPE') === $image) {
       return $ei_small_image_size;
     }
   }

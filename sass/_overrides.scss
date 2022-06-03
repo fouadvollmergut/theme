@@ -1,4 +1,9 @@
 // Complianz
+#cmplz-cookiebanner-container .cmplz-cookiebanner {
+  box-sizing: border-box;
+  max-width: calc(100vw - 2rem);
+  margin: 1rem;
+}
 
 footer .cmplz-placeholder-1 {
   background-color: unset;

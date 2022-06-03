@@ -4,6 +4,7 @@
         $menu = has_nav_menu( 'foot' );
         $info = trim(get_option('fvt_ct_footer_content'));
         $map = get_option('fvt_ct_footer_map_frame');
+        $analytics = get_option('fvt_ct_analytics_type');
       ?>
 
       <!-- Footer -->
@@ -49,6 +50,9 @@
     
     <!-- Overlays -->
     <?php include get_template_directory() . '/overlays.php'; ?>
+
+    <!-- Analytics -->
+    <?php if (CST()->GET('ANALYTICS/GOOGLE') === $analytics) require_once 'includes/Analytics/analytics_google.php'; ?>
 
     <?php wp_footer(); ?>
 
