@@ -4,7 +4,9 @@
   require_once 'includes/EasyInit/interface.php';
 
   // THEME Load includes
+  require_once 'includes/Constants/constants.php';
   require_once 'includes/Footer/footer_options.php';
+  require_once 'includes/Analytics/analytics.php';
   require_once 'includes/Mailer/mailer_options.php';
   require_once 'includes/Mailer/mailer.php';
   require_once 'includes/API/api.php';
