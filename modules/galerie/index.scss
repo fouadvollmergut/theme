@@ -6,6 +6,11 @@
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: nowrap;
+    max-height: unset;
+
+    @include breakpoint-up('medium') {
+      max-height: 90vh;
+    }
 
     &_container {
       width: 100%;
