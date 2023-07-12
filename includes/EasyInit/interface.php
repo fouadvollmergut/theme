@@ -12,7 +12,7 @@
     }
   endif;
 
-  if (function_exists('background_class')):
+  if (!function_exists('background_class')):
     function background_class($background) {
       $ei_header_background = 'dark';
       $ei_footer_background = 'dark';
@@ -30,7 +30,7 @@
     }
   endif;
 
-  if (function_exists('image_size')):
+  if (!function_exists('image_size')):
     function image_size($image) {
       $ei_full_image_size = CST()->GET('IMAGE/SIZE/FULL/DIMENSIONS');
       $ei_small_image_size = CST()->GET('IMAGE/SIZE/SMALL/DIMENSIONS');
